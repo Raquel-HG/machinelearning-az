@@ -22,6 +22,12 @@ y = dataset.iloc[:, 3].values
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 
+##Para codificar datos categóricos ahora se utiliza:
+
+#from sklearn import preprocessing
+# le_X = preprocessing.LabelEncoder()
+# X[:,0] = le_X.fit_transform(X[:,0])
+
 labelencoder_X = LabelEncoder()
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
 
