@@ -43,7 +43,8 @@ X = np.array(ct.fit_transform(X), dtype=np.float)
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
 
-#Para utilizar one hot encoder y crear variables dummy, ya no hace falta utilizar previamente la función label enconder, si no que para aplicar la dummyficación a la primera columna y dejar el resto de columnas como están, lo podemos hacer con:
+#Para utilizar one hot encoder y crear variables dummy, ya no hace falta utilizar previamente la función label enconder,
+#si no que para aplicar la dummyficación a la primera columna y dejar el resto de columnas como están, lo podemos hacer con:
 #
 #from sklearn.preprocessing import OneHotEncoder
 #from sklearn.compose import make_column_transformer
