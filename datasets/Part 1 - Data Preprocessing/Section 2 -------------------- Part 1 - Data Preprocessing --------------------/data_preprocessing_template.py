@@ -29,3 +29,11 @@ from sklearn.preprocessing import StandardScaler
 sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
+
+#Cambios de validación cruzada y training/testing
+
+#La función sklearn.grid_search ha cambiado y ya no depende de ese paquete. Ahora debe cargarse con
+
+#from sklearn.model_selection import GridSearchCV
+
+#La función train_test_split ya no forma parte de sklearn.cross_validation, ahora debe cargarse desde el paquete sklearn.model_selection
