@@ -50,11 +50,3 @@ y = labelencoder_y.fit_transform(y)
 #onehotencoder = make_column_transformer((OneHotEncoder(), [0]), remainder = "passthrough")
 #X = onehotencoder.fit_transform(X)
 
-
-#Cambios de validación cruzada y training/testing
-
-#La función sklearn.grid_search ha cambiado y ya no depende de ese paquete. Ahora debe cargarse con
-
-#from sklearn.model_selection import GridSearchCV
-
-#La función train_test_split ya no forma parte de sklearn.cross_validation, ahora debe cargarse desde el paquete sklearn.model_selection
