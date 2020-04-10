@@ -23,3 +23,13 @@ from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values = np.nan, strategy = 'mean', verbose=0) 
 imputer = imputer.fit(X[:, 1:3])
 X[:, 1:3] = imputer.transform(X[:,1:3])
+
+#Para hacer reemplazo de valores por la media, ahora se utiliza:
+#
+#from sklearn.impute import SimpleImputer
+# Reemplazar por medias
+#imputer = SimpleImputer(strategy="mean")
+#medias en columnas 1,2
+#imputer = imputer.fit(X[:, 1:3])
+# Cambiar valores por dichas nedias
+#X[:, 1:3] = imputer.transform(X[:, 1:3])
