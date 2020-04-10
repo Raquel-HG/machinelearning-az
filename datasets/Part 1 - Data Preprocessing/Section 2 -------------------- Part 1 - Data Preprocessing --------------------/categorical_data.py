@@ -20,34 +20,12 @@ y = dataset.iloc[:, 3].values
 
 ##Para codificar datos categóricos ahora se utiliza:
 
-#from sklearn import preprocessing
-# le_X = preprocessing.LabelEncoder()
-# X[:,0] = le_X.fit_transform(X[:,0])
-
-
-# Codificar datos categóricos
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-
-labelencoder_X = LabelEncoder()
-X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
-
-ct = ColumnTransformer(
-    [('one_hot_encoder', OneHotEncoder(categories='auto'), [0])],    # The column numbers to be transformed (here is [0] but can be [0, 1, 3])
-    remainder='passthrough'                         # Leave the rest of the columns untouched
-)
-
-onehotencoder = OneHotEncoder(categorical_features=[0])
-X = onehotencoder.fit_transform(X).toarray()
-X = np.array(ct.fit_transform(X), dtype=np.float)
-labelencoder_y = LabelEncoder()
-y = labelencoder_y.fit_transform(y)
-
-#Para utilizar one hot encoder y crear variables dummy, ya no hace falta utilizar previamente la función label enconder,
-#si no que para aplicar la dummyficación a la primera columna y dejar el resto de columnas como están, lo podemos hacer con:
-#
-#from sklearn.preprocessing import OneHotEncoder
-#from sklearn.compose import make_column_transformer
-#onehotencoder = make_column_transformer((OneHotEncoder(), [0]), remainder = "passthrough")
-#X = onehotencoder.fit_transform(X)
-
+from sklearn import preprocessing
+le_X = preprocessing.LabelEncoder()
+X[:,0] = le_X.fit_transform(X[:,0])
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import make_column_transformer
+onehotencoder = make_column_transformer((OneHotEncoder(), [0]), remainder = "passthrough")
+X = onehotencoder.fit_transform(X)
+le_y= preprocessing.LabelEncoder()
+y=le_y.fit_transform(y)
