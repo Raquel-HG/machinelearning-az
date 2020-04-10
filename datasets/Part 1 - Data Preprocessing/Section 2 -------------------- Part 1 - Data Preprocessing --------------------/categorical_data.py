@@ -37,8 +37,8 @@ ct = ColumnTransformer(
     remainder='passthrough'                         # Leave the rest of the columns untouched
 )
 
-#onehotencoder = OneHotEncoder(categorical_features=[0])
-#X = onehotencoder.fit_transform(X).toarray()
+onehotencoder = OneHotEncoder(categorical_features=[0])
+X = onehotencoder.fit_transform(X).toarray()
 X = np.array(ct.fit_transform(X), dtype=np.float)
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
