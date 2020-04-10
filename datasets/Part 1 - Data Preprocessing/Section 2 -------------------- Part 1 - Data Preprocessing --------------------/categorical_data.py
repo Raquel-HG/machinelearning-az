@@ -18,15 +18,16 @@ dataset = pd.read_csv('Data.csv')
 X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3].values
 
-# Codificar datos categóricos
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder
-from sklearn.compose import ColumnTransformer
-
 ##Para codificar datos categóricos ahora se utiliza:
 
 #from sklearn import preprocessing
 # le_X = preprocessing.LabelEncoder()
 # X[:,0] = le_X.fit_transform(X[:,0])
+
+
+# Codificar datos categóricos
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+from sklearn.compose import ColumnTransformer
 
 labelencoder_X = LabelEncoder()
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
@@ -48,7 +49,6 @@ y = labelencoder_y.fit_transform(y)
 #from sklearn.compose import make_column_transformer
 #onehotencoder = make_column_transformer((OneHotEncoder(), [0]), remainder = "passthrough")
 #X = onehotencoder.fit_transform(X)
-
 
 
 #Cambios de validación cruzada y training/testing
